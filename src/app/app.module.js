@@ -8,8 +8,7 @@
         var interceptor = ['$injector', '$window', function ($injector, $window) {
                 return {
                     'request': function (requestSuccess) {
-                        if(!(+(requestSuccess.url).indexOf('html') > -1))
-                                $httpProvider.defaults.headers.common['api_password'] = 'b5ee1a0da248c63ac5867f9ab780e862a4fde1100eb0c5c94d29d7557bc35063';
+                        
                         return requestSuccess;
                     },
                     'responseError': function (rejection) {
