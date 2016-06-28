@@ -1,0 +1,23 @@
+{
+  "name": "ngBaseSeed",
+  "description": "An angular base application that has the most basic build and repository features builtin to support quick creation of Web App.",
+  "main": "",
+  "authors": [
+    "Anvay Kshatriya"
+  ],
+  "license": "No",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "ui-router#^0.2.18",
+    "angular-mocks": "~1.3.13"
+  }
+}
