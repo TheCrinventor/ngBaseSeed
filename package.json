@@ -23,6 +23,8 @@
     "q": "^1.4.1"
   },
   "dependencies": {
-    "gulp-filter": "^4.0.0"
+    "bower": "^1.7.9",
+    "gulp-filter": "^4.0.0",
+    "gulp-print": "^2.0.1"
   }
 }

@@ -1,6 +1,10 @@
 <div class="container">
     <div class="primary-area">
-        <span > This is home !! {{ home.WelcomeMsg }}</span>
-        <input type="file"/>
+       <div><span>Username: </span><input type="text" ng-model="username" placeholder="username"/></div>
+        <div><span>Password: </span><input type="password" ng-model="password" placeholder="password" /></div>
+        
+        <input type="button" ng-click="sign_in(username,password)" value="Sign In" />
+        
+        <input type="button" ng-click="getData()" value="Get Data" />
     </div>
 </div>

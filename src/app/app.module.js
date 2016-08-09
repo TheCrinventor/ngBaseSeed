@@ -1,14 +1,25 @@
 (function() {
     'use strict';
 
-    var app = angular.module('Base', ['ui.router','videoplayer']);
+    var app = angular.module('Base', ['ui.router','ngCookies']);
     
     app.config(['$stateProvider', '$urlRouterProvider','$httpProvider',function($stateProvider,$urlRouterProvider,$httpProvider){
         
-        var interceptor = ['$injector', '$window', function ($injector, $window) {
+        var interceptor = ['$injector', '$window','$cookies', function ($injector, $window,$cookies) {
                 return {
                     'request': function (requestSuccess) {
-                       
+                       if(!(+(requestSuccess.url).indexOf('html') > -1) && !(+(requestSuccess.url).indexOf('sign_in') > -1))
+                        {
+                            var auth = $cookies.getObject('RequestHeaders');
+                       $httpProvider.defaults.headers.common = {};
+                        $httpProvider.defaults.headers.common['access-token'] = auth['access-token'];
+                        $httpProvider.defaults.headers.common['client'] = auth['client'];
+                        $httpProvider.defaults.headers.common['expiry'] = auth['expiry'];
+                        $httpProvider.defaults.headers.common['token-type'] = auth['token-type'];
+                        $httpProvider.defaults.headers.common['uid'] = auth['uid'];
+                        
+                        }
+                                
                         return requestSuccess;
                     },
                     'responseError': function (rejection) {
