@@ -1,0 +1,125 @@
+<div class="container" ng-init="getData()">
+<!--<div class="form-box"><h5 class="form-signin-heading">Sign In/Sign Up</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">Risk Questions</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">Risk Report</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">Suggested Portfolio</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">Confirm Portfolio</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">Mobile Email Verification</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">KYC</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">CAN</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">Customer Documents</h2></div>
+<div class="form-box"><h5 class="form-signin-heading">Transactions</h2></div>
+-->
+
+<div class="container-fluid">
+	<div class="row">
+	
+		<div class="col-md-2"><hr/><div class="well">
+			<span class="label label-primary pull-right">{{stats.registration['2'] || '&nbsp;'}}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left pull-left">{{ stats.registration['2'] + stats.registration['3'] }}</span>
+				Sign In/Sign Up
+			</h5>
+			<span class="label label-warning pull-right">{{stats.registration['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2"><hr/><div class="well">
+			<span class="label label-primary pull-right">{{stats.questionnaire['2'] || '&nbsp;'}}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{stats.questionnaire['2'] + stats.questionnaire['3']}}</span>
+				Risk Questions
+			</h5>
+			<span class="label label-warning pull-right">{{stats.questionnaire['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2"><hr/><div class="well">
+			<span class="label label-primary pull-right">{{stats.risk_report['2'] || '&nbsp;'}}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{stats.risk_report['2'] + stats.risk_report['3']}}</span>
+				Risk Report
+			</h5>
+			<span class="label label-warning pull-right">{{stats.risk_report['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2"><hr/><div class="well">
+		<span class="label label-primary pull-right">{{stats.suggested_portfolio['2'] || '&nbsp;' }}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{stats.suggested_portfolio['2'] + stats.suggested_portfolio['3'] }}</span>
+				Suggested Portfolio
+			</h5>
+			<span class="label label-warning pull-right">{{stats.suggested_portfolio['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2"><hr/><div class="well">
+		<span class="label label-primary pull-right">{{stats.confirm_portfolio['2'] || '&nbsp;'}}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{stats.confirm_portfolio['2'] + stats.confirm_portfolio['3']}}</span>
+				Confirm Portfolio
+			</h5>
+			<span class="label label-warning pull-right">{{stats.confirm_portfolio['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row"><hr class="connector-one"/>
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-10">
+			<div class="row">
+				<div class="col-md-12">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1">
+		</div>
+		
+	</div>
+	<div class="row">
+	
+	<div class="col-md-2"><hr class="connector-two"/><div class="well">
+		<span class="label label-primary pull-right">{{ stats.mobile_verification['2'] || '&nbsp;' }}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{stats.mobile_verification['2'] + stats.mobile_verification['3']}}</span>
+				Mobile Email Verification
+			</h5>
+			<span class="label label-warning pull-right">{{ stats.mobile_verification['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2"><hr/><div class="well">
+		<span class="label label-primary pull-right">{{ stats.kyc_status['2'] || '&nbsp;' }}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{stats.kyc_status['2'] + stats.kyc_status['3']}}</span>
+				KYC
+			</h5>
+			<span class="label label-warning pull-right">{{ stats.kyc_status['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2"><hr/><div class="well">
+		<span class="label label-primary pull-right">{{ stats.can_status['2'] || '&nbsp;' }}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{stats.can_status['2'] + stats.can_status['3']}}</span>
+				CAN
+			</h5>
+			<span class="label label-warning pull-right">{{ stats.can_status['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2"><hr/><div class="well">
+			<span class="label label-primary pull-right">{{stats.customer_documents['2'] || '&nbsp;' }}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{ stats.customer_documents['2'] + stats.customer_documents['3']}}</span>
+				Customer Documents
+			</h5>
+			<span class="label label-warning pull-right">{{stats.customer_documents['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2"><hr/><div class="well">
+		<span class="label label-primary pull-right">{{stats.transaction_status['2'] || '&nbsp;' }}</span>
+			<h5 class="text-primary push-vertical">
+				<span class="label label-success push-right pull-left">{{ stats.transaction_status['2'] + stats.transaction_status['3']}}</span>
+				Transactions
+			</h5>
+			<span class="label label-warning pull-right">{{stats.transaction_status['3'] || '&nbsp;'}}</span></div>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+</div>
+
+
+</div>
