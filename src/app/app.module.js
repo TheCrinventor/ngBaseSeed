@@ -11,7 +11,8 @@
                        if(!(+(requestSuccess.url).indexOf('html') > -1) && !(+(requestSuccess.url).indexOf('sign_in') > -1))
                         {
                             var auth = $cookies.getObject('RequestHeaders');
-                       $httpProvider.defaults.headers.common = {};
+                        
+                        $httpProvider.defaults.headers.common = {};
                         $httpProvider.defaults.headers.common['access-token'] = auth['access-token'];
                         $httpProvider.defaults.headers.common['client'] = auth['client'];
                         $httpProvider.defaults.headers.common['expiry'] = auth['expiry'];

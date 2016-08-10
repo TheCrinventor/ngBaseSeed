@@ -70,3 +70,5 @@ Icon?
 Thumbs.db
 packages
 build
+/dist.dev
+/src/vendor
