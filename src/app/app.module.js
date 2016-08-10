@@ -34,13 +34,19 @@
 
             $httpProvider.interceptors.push(interceptor);
         
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/login');
         
         $stateProvider
         .state('home',{
             url:'/home',
             controller: 'HomeController as home',
             templateUrl: 'app/views/home.html' 
+            //template: '<span> THIS IS A TEST!! </span>' //'views/home.html''',
+        })
+        .state('login',{
+            url:'/login',
+            controller: 'LoginController as login',
+            templateUrl: 'app/views/login.html' 
             //template: '<span> THIS IS A TEST!! </span>' //'views/home.html''',
         });
         

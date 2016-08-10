@@ -15,7 +15,7 @@ function dataService($q,$http,$rootScope,$cookies) {
     {
         var deferred = $q.defer();
         $http.get(api).success(function (data, status, headers, config) {
-        if (data.Data === undefined)
+        if (status === undefined || status != 200)
         {
             console.log('Status: ' + status);
             deferred.reject(status);
@@ -41,18 +41,20 @@ function dataService($q,$http,$rootScope,$cookies) {
             password: password
         };
         
-        post('http://api.investsavvy.in:81/v1/auth/sign_in',userData).then(function(data){
+        var isAuthentic = post('http://api.investsavvy.in:81/v1/auth/sign_in',userData).then(function(data){
             if(data.headers == undefined || data.status != 200){
             console.log('************* NOT AUTHORIZED***************');
-
+                return false;
             }
             else
             {
                 $cookies.putObject('RequestHeaders',data.headers);
                 console.log('From Cookies: ');
                 console.log($cookies.getObject('RequestHeaders'));
+                return true;
             }
-        })
+        });
+        return isAuthentic;
     }
     
     function sign_out(){
