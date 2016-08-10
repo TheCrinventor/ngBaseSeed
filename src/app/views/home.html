@@ -12,6 +12,13 @@
 -->
 
 <div class="container-fluid">
+    <div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center">
+				Admin Panel - User Pipeline
+			</h3>
+		</div>
+	</div>
 	<div class="row">
 		
 		<div class="col-md-1"><hr class="connector-start"/><div class="well well-endpoint">
@@ -24,7 +31,7 @@
 			<span class="label label-warning pull-right">{{stats.registration['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
 		<div class="well">
 			<span class="label label-success push-right pull-left">{{stats.questionnaire['2'] + stats.questionnaire['3'] || 0 }}</span>
 			<span class="label label-primary pull-right">{{stats.questionnaire['2'] || 0}}</span>
@@ -35,7 +42,7 @@
 			<span class="label label-warning pull-right">{{stats.questionnaire['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion">{{ stats.risk_report['3']/(stats.risk_report['2'] + stats.risk_report['3']) || 0 }}%</span>
 		<div class="well">
 			<span class="label label-success push-right pull-left">{{stats.risk_report['2'] + stats.risk_report['3'] || 0 }}</span>
 			<span class="label label-primary pull-right">{{stats.risk_report['2'] || 0}}</span>
@@ -46,9 +53,9 @@
 			<span class="label label-warning pull-right">{{stats.risk_report['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion">{{ stats.suggested_portfolio['3']/(stats.suggested_portfolio['2'] + stats.suggested_portfolio['3']) || 0 }}%</span>
 		<div class="well">
-			<span class="label label-success push-right pull-left">{{stats.suggested_portfolio['2'] + stats.suggested_portfolio['3'] }}</span>
+			<span class="label label-success push-right pull-left">{{stats.suggested_portfolio['2'] + stats.suggested_portfolio['3'] || 0 }}</span>
 			<span class="label label-primary pull-right">{{stats.suggested_portfolio['2'] || 0 }}</span>
 			<h5 class="text-primary push-vertical">
 				
@@ -57,7 +64,7 @@
 			<span class="label label-warning pull-right">{{stats.suggested_portfolio['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion">{{ stats.confirm_portfolio['3']/(stats.confirm_portfolio['2'] + stats.confirm_portfolio['3']) || 0 }}%</span>
 		<div class="well">
 		<span class="label label-success push-right pull-left">{{stats.confirm_portfolio['2'] + stats.confirm_portfolio['3'] || 0 }}</span>
 		<span class="label label-primary pull-right">{{stats.confirm_portfolio['2'] || 0}}</span>
@@ -68,7 +75,7 @@
 			<span class="label label-warning pull-right">{{stats.confirm_portfolio['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion">{{ stats.mobile_verification['3']/(stats.mobile_verification['2'] + stats.mobile_verification['3']) || 0 }}%</span>
 		<div class="well">
 		<span class="label label-success push-right pull-left">{{stats.mobile_verification['2'] + stats.mobile_verification['3'] || 0 }}</span>
 		<span class="label label-primary pull-right">{{ stats.mobile_verification['2'] || 0 }}</span>
@@ -79,7 +86,7 @@
 			<span class="label label-warning pull-right">{{ stats.mobile_verification['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion">{{ stats.kyc_status['3']/(stats.kyc_status['2'] + stats.kyc_status['3']) || 0 }}%</span>
 		<div class="well">
 		<span class="label label-success push-right pull-left">{{stats.kyc_status['2'] + stats.kyc_status['3'] || 0 }}</span>
 		<span class="label label-primary pull-right">{{ stats.kyc_status['2'] || 0 }}</span>
@@ -90,7 +97,7 @@
 			<span class="label label-warning pull-right">{{ stats.kyc_status['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion">{{ stats.can_status['3']/(stats.can_status['2'] + stats.can_status['3']) || 0 }}%</span>
 		<div class="well">
 		<span class="label label-success push-right pull-left">{{stats.can_status['2'] + stats.can_status['3'] || 0 }}</span>
 		<span class="label label-primary pull-right">{{ stats.can_status['2'] || 0 }}</span>
@@ -101,7 +108,7 @@
 			<span class="label label-warning pull-right">{{ stats.can_status['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion">{{ stats.customer_documents['3']/(stats.customer_documents['2'] + stats.customer_documents['3']) || 0 }}%</span>
 		<div class="well">
 			<span class="label label-success push-right pull-left">{{ stats.customer_documents['2'] + stats.customer_documents['3'] || 0 }}</span>
 			<span class="label label-primary pull-right">{{stats.customer_documents['2'] || 0 }}</span>
@@ -112,7 +119,7 @@
 			<span class="label label-warning pull-right">{{stats.customer_documents['3'] || 0}}</span></div>
 		</div>
 		<div class="col-md-1"><hr class="connector-end"/>
-		<span class="conversion pull-left">{{ stats.questionnaire['3']/(stats.questionnaire['2'] + stats.questionnaire['3']) || 0 }}%</span>
+		<span class="conversion ">{{ stats.transaction_status['3']/(stats.transaction_status['2'] + stats.transaction_status['3']) || 0 }}%</span>
 		<div class="well well-endpoint">
 		<span class="label label-success push-right pull-left">{{ stats.transaction_status['2'] + stats.transaction_status['3'] || 0 }}</span>
 		<span class="label label-primary pull-right">{{stats.transaction_status['2'] || 0 }}</span>
@@ -121,6 +128,32 @@
 				Transactions
 			</h5>
 			<span class="label label-warning pull-right">{{stats.transaction_status['3'] || 0}}</span></div>
+		</div>
+		<div class="col-md-1">
+		</div>
+	</div>
+    <div class="row push-top">
+		<div class="col-md-8">
+		</div>
+		<div class="col-md-3">      
+            <div class="well">
+                <div class="row">
+                <div class="col-md-4"><span class="label label-success">#</span></div>
+                <div class="col-md-8"><h5 class="text-primary"> No. of customers arrived at the process</h5></div>
+                </div><hr class="separator">
+                <div class="row">
+                <div class="col-md-4"><span class="label label-primary">#</span></div>
+                <div class="col-md-8"><h5 class="text-primary"> No. of customers still at the process.</h5></div>
+                </div><hr class="separator">
+                <div class="row">
+                <div class="col-md-4"><span class="label label-warning">#</span></div>
+                <div class="col-md-8"><h5 class="text-primary"> No. of customers successfully passed process.</h5></div>
+                </div><hr class="separator">
+                <div class="row">
+                <div class="col-md-4"><span class="label label-default">#</span></div>
+                <div class="col-md-8"><h5 class="text-primary"> Conversion Rate ( <span class="label label-warning">#</span>/ <span class="label label-success">#</span> )</h5></div>
+                </div>
+            </div>
 		</div>
 		<div class="col-md-1">
 		</div>
