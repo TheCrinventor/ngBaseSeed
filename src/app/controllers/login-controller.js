@@ -17,7 +17,7 @@ angular.module('Base')
                 else
                 {
                     vm.isUserValid = false;
-                    console.log('*********UNATHORIZED USER**********');
+                    //console.log('*********UNATHORIZED USER**********');
                 }   
                 
             });

@@ -1,0 +1,10 @@
+<div class="col-md-1"><hr ng-class="{'connector-start': start,'connector-end': end}"/>
+		<span class="conversion">{{ (stage['3']/(stage['2'] + stage['3']))*100 || 0 | number: 0}}%</span>
+		<div class="well">
+			<span class="label label-success push-right pull-left">{{stage['2'] + stage['3'] || 0 }}</span>
+			<span class="label label-primary pull-right">{{stage['2'] || 0}}</span>
+			<h5 class="text-primary push-vertical">
+			{{stagename}}
+			</h5>
+        <span class="label label-warning pull-right">{{stage['3'] || 0}}</span></div>
+</div>

@@ -43,7 +43,7 @@ function dataService($q,$http,$rootScope,$cookies) {
         
         var isAuthentic = post('http://api.investsavvy.in:81/v1/auth/sign_in',userData).then(function(data){
             if(data.headers == undefined || data.status != 200){
-            console.log('************* NOT AUTHORIZED***************');
+            //console.log('************* NOT AUTHORIZED***************');
                 return false;
             }
             else
