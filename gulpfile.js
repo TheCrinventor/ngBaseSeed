@@ -14,6 +14,7 @@ var webserver   = require('gulp-webserver');
 var print       = require('gulp-print');
 var angularFilesort = require('gulp-angular-filesort');
 var filter = require('gulp-filter')
+var order = require('gulp-order');
 //Configuration
 var buildFolderName = 'build';
 var releaseFolderName = 'release';
@@ -22,7 +23,8 @@ var releaseFolder = __dirname + '/' + releaseFolderName + '/';
 
 var paths = {
     scripts: ['src/app/**/*.module.js', 'src/app/**/*.js', '!src/app/**/*.spec.js'],
-    styles: './src/content/**/*.css',
+    styles: ['src/content/styles/**/*.scss'],
+    images: 'src/content/images/*.*',
     index: './src/index.html',
     partials: ['src/app/**/*.html', '!src/index.html'],
     distDev: './dist.dev',
@@ -33,6 +35,12 @@ var paths = {
     distContentProd: './dist.prod/content',
     distScriptsProd: './dist.prod/scripts',
     distVendorProd: './dist.prod/vendor'
+};
+
+var sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded',
+  includePaths: ['src/content/styles/sass']
 };
 
 //Tasks
@@ -82,7 +90,7 @@ gulp.task('vendor', function () {
 
 gulp.task('vendor-dev', function() {
     return gulp.src(bowerFiles())
-       // .pipe(angularFilesort())
+        
         .pipe(gulp.dest(paths.distVendorDev));
 });
 
@@ -121,28 +129,45 @@ gulp.task('scripts-dev', function() {
  * Processes application css to dist path
  */
 gulp.task('css', function () {
-    return gulp.src('./src/content/*.css')
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.log(err);
-                this.emit('end');
-            }
+    return gulp.src(paths.styles)
+        .pipe(plugins.wait(500))
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.sass(sassOptions).on('error', function(err){
+            console.log(err);
+            this.emit('end');
         }))
+        .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(paths.distContentProd));
 });
 
+gulp.task('images', function() {
+    return gulp.src(paths.images)
+        .pipe(gulp.dest(paths.distContentDev + '/images'));
+});
 /**
  * Processes application css to dev dist path
  */
 gulp.task('css-dev', function() {
-    return gulp.src('./src/content/*.css')
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.log(err);
-                this.emit('end');
-            }
+
+    return gulp.src(paths.styles)
+        .pipe(plugins.wait(500))
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.sass(sassOptions).on('error', function(err){
+            console.log(err);
+            this.emit('end');
         }))
+        .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(paths.distContentDev));
+
+
+    // return gulp.src('./src/content/*.css')
+    //     .pipe(plumber({
+    //         errorHandler: function (err) {
+    //             console.log(err);
+    //             this.emit('end');
+    //         }
+    //     }))
+    //     .pipe(gulp.dest(paths.distContentDev));
 });
 
 
@@ -177,7 +202,7 @@ gulp.task('html-dev', function() {
 /**
  * Injects release files into index.html
  */
-gulp.task('inject', ['scripts', 'css', 'html', 'vendor'], function(){
+gulp.task('inject', ['scripts', 'css','images', 'html', 'vendor'], function(){
     return gulp.src(paths.index)
         .pipe(gulp.dest(paths.distProd))
         .pipe(inject(gulp.src('./dist.prod/vendor/*.js').pipe(angularFilesort())))
@@ -205,7 +230,7 @@ gulp.task('inject-dev', ['create-dev'], function(){
         .pipe(gulp.dest(paths.distDev))
         
         .pipe(inject(gulp.src([paths.distScriptsDev + '/**/*.module.js', paths.distScriptsDev + '/**/*.js'], {read: false}), {relative: true, name: ''}))
-        .pipe(inject(gulp.src('./dist.dev/vendor/*.js', {read: true}).pipe(angularFilesort()), {name: 'bower', relative: true}))
+        .pipe(inject(gulp.src('./dist.dev/vendor/*.js', {read: true}).pipe(angularFilesort()).pipe(order(['angular.js','ngDraggable.js'])), {name: 'bower', relative: true}))
         //.pipe(inject(gulp.src('./dist.dev/vendor/*.js').pipe(angularFilesort())))
         .pipe(inject(gulp.src('./dist.dev/vendor/*.css', {read: false}), {name: 'bower', relative: true}))
         .pipe(inject(gulp.src(paths.distContentDev + '/**/*.css',{read:false}), {relative: true}))
@@ -215,7 +240,7 @@ gulp.task('inject-dev', ['create-dev'], function(){
 /**
  * Creates development environment for testing
  */
-gulp.task('create-dev', ['index-dev', 'vendor-dev', 'css-dev', 'html-dev', 'scripts-dev']);
+gulp.task('create-dev', ['index-dev', 'vendor-dev', 'css-dev','images', 'html-dev', 'scripts-dev']);
 
 /**
  * Builds a distribustion
